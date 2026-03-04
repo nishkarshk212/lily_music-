@@ -117,10 +117,14 @@ def _human_views(n: Optional[int]) -> str:
     return str(n)
 
 async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], str, str]:
+    """
+    Resolve a query to audio stream URL.
+    Tries multiple sources in order: Piped API (YouTube), then SoundCloud.
+    """
     def _extract() -> Tuple[str, str, Optional[str], Optional[str], str, str]:
         import requests
         
-        # Strategy 1: Try ALL Piped API instances until one works
+        # Strategy 1: Try ALL Piped API instances for YouTube
         for piped_url in PIPED_INSTANCES:
             try:
                 logger.info(f"Attempting Piped API ({piped_url}) for: {query[:50]}")
@@ -159,53 +163,50 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 logger.warning(f"Piped API {piped_url} failed: {e}")
                 continue
         
-        # Strategy 2: Try using a public CORS proxy to access YouTube
+        # Strategy 2: Try SoundCloud (direct URL or search)
         try:
-            logger.info(f"Attempting YouTube via CORS proxy for: {query[:50]}")
+            is_soundcloud_url = query.startswith(('http://', 'https://')) and ('soundcloud.com' in query or 'sndcdn.com' in query)
             
-            # Use ytdl-sub proxy or similar services
-            proxy_ydl_opts = AUDIO_YDL_OPTS.copy()
-            proxy_ydl_opts['proxy'] = None  # Try without proxy first
+            if is_soundcloud_url:
+                logger.info(f"Attempting SoundCloud URL extraction: {query}")
+            else:
+                logger.info(f"Searching SoundCloud for: {query}")
             
-            # Try with different extractor args optimized for blocked regions
-            proxy_ydl_opts['extractor_args'] = {
-                'youtube': {
-                    'player_client': 'web_embedded',
-                    'player_skip': ['webpage', 'metadata'],
-                    'skip': ['hls', 'dash'],
-                }
+            sc_opts = {
+                "format": "bestaudio/best",
+                "noplaylist": True,
+                "quiet": True,
+                "skip_download": True,
+                "no_warnings": True,
             }
             
-            with YoutubeDL(proxy_ydl_opts) as ydl:
+            with YoutubeDL(sc_opts) as ydl:
                 info = ydl.extract_info(query, download=False)
+                
+                # If it's a search result, get first track
                 if "entries" in info:
-                    info = info["entries"][0]
+                    entries = list(info["entries"])
+                    if entries:
+                        info = entries[0]
+                    else:
+                        raise Exception("No SoundCloud results found")
                 
                 url = info.get("url")
-                if not url or "youtube.com" in url or "youtu.be" in url:
-                    formats = info.get("formats", [])
-                    if formats:
-                        for fmt in reversed(formats):
-                            if fmt.get("acodec") != "none" and fmt.get("vcodec") == "none":
-                                url = fmt.get("url")
-                                break
-                        if not url and formats:
-                            url = formats[-1].get("url")
+                title = info.get("title") or "Audio"
+                thumb = info.get("thumbnail")
+                vid = info.get("id", "sc_" + str(hash(title)))
+                duration_str = _format_duration(info.get("duration"))
+                views_str = _human_views(info.get("playback_count", 0))
                 
-                if url:
-                    title = info.get("title") or "Audio"
-                    thumb = info.get("thumbnail")
-                    vid = info.get("id")
-                    duration_str = _format_duration(info.get("duration"))
-                    views_str = _human_views(info.get("view_count"))
-                    logger.info(f"YouTube via proxy successful: {title}")
-                    return url, title, thumb, vid, views_str, duration_str
+                logger.info(f"SoundCloud extracted: {title}")
+                return url, title, thumb, vid, views_str, duration_str
+                
         except Exception as e:
-            logger.warning(f"YouTube via proxy failed: {e}")
+            logger.warning(f"SoundCloud extraction failed: {e}")
         
-        # All methods failed - provide clear error
-        logger.error("All Piped API instances and YouTube proxy failed")
-        raise Exception(f"⚠️ YouTube playback is currently unavailable from this server due to network restrictions. This is a known issue with cloud hosting providers. Please try using SoundCloud direct URLs instead (e.g., /play https://soundcloud.com/artist/song)")
+        # All methods failed
+        logger.error("All sources (Piped API, SoundCloud) failed")
+        raise Exception(f"No playable audio found. Please try a different song or provide a direct SoundCloud/YouTube URL.")
     
     return await asyncio.to_thread(_extract)
 
