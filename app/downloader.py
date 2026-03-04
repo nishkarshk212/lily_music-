@@ -28,7 +28,7 @@ AUDIO_YDL_OPTS = {
     "extractor_args": {
         "youtube": {
             "skip": ["hls", "dash"],
-            "player_client": "ios",
+            "player_client": "tv_embedded",
             "player_skip": ["webpage"]
         }
     },
@@ -37,10 +37,18 @@ AUDIO_YDL_OPTS = {
     "youtube_include_hls_manifest": False,
     "socket_timeout": 30,
     "retries": 3,
-    # Multiple user agents to rotate
-    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+    # Use TV embedded client (less restrictions)
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "referer": "https://www.youtube.com/",
-    "cookiesfrombrowser": None,
+    # Try without browser cookies first
+    "prefer_free_formats": False,
+    # Additional bypass techniques
+    "extractor_retries": 3,
+    "http_headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-us,en;q=0.5",
+        "Sec-Fetch-Mode": "navigate",
+    },
 }
 
 # Fallback options with Invidious
@@ -54,13 +62,18 @@ AUDIO_YDL_OPTS_FALLBACK = {
     "extractor_args": {
         "youtube": {
             "skip": ["hls", "dash"],
-            "player_client": "tv_embedded"
+            "player_client": "android",
+            "player_skip": ["webpage"]
         }
     },
     "socket_timeout": 30,
     "retries": 2,
-    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "user_agent": "com.google.android.youtube/17.31.35 (Linux; U; Android 13) gzip",
     "referer": "https://www.youtube.com/",
+    "http_headers": {
+        "Accept": "*/*",
+        "X-Goog-Api-Format-Version": "2",
+    },
 }
 
 QUALITY_FORMATS = {
