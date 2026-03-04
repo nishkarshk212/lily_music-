@@ -1803,7 +1803,7 @@ def create_bot(api_id: int, api_hash: str, bot_token: str, player: Player, sessi
             await player.tgcalls.pause(chat_id)
             await player.tgcalls.resume(chat_id)
             vc = "Active"
-        except NotInCallError:
+        except (NotInCallError, AttributeError, Exception):
             vc = "No active"
         sticker_sets = STICKER_SET_URLS or STICKER_SET_URL or ""
         sticker_random = bool(STICKER_RANDOM_ENABLED)
