@@ -1,0 +1,128 @@
+2026-03-04 07:56:31,052 - root - INFO - Starting user client...
+2026-03-04 07:56:31,156 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 07:56:31,257 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 07:56:31,257 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 07:56:31,722 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 07:56:31,723 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 07:56:31,724 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 07:56:31,724 - pyrogram.session.session - INFO - Session started
+2026-03-04 07:56:31,729 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 07:56:31,959 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 07:56:31,960 - root - INFO - User client started successfully!
+2026-03-04 07:56:31,960 - root - INFO - Initializing player...
+2026-03-04 07:56:32,461 - root - INFO - Player initialized!
+2026-03-04 07:56:32,462 - root - INFO - Starting bot...
+2026-03-04 07:56:33,550 - root - ERROR - Error starting bot: database is locked
+2026-03-04 07:56:33,550 - root - WARNING - Database locked, trying alternative session...
+2026-03-04 07:56:33,553 - root - INFO - Removed /Users/nishkarshkr/Desktop/Panda x music /sessions/bot/music-bot-alt.session
+2026-03-04 07:56:33,582 - pyrogram.session.auth - INFO - Start creating a new auth key on DC2
+2026-03-04 07:56:33,582 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 07:56:33,772 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2026-03-04 07:56:35,795 - pyrogram.session.auth - INFO - Done auth key exchange: DhGenOk
+2026-03-04 07:56:35,796 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 07:56:35,800 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 07:56:35,976 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2026-03-04 07:56:35,977 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - Session started
+2026-03-04 07:56:36,785 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 07:56:36,985 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 07:56:36,986 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 07:56:36,986 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 07:56:36,986 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 07:56:36,993 - pyrogram.session.auth - INFO - Start creating a new auth key on DC5
+2026-03-04 07:56:36,993 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 07:56:37,091 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 07:56:38,652 - pyrogram.session.auth - INFO - Done auth key exchange: DhGenOk
+2026-03-04 07:56:38,653 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 07:56:38,656 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 07:56:38,760 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 07:56:38,761 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - Session started
+2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 07:56:39,643 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 07:56:39,644 - root - INFO - Bot started with alternative session!
+2026-03-04 07:56:48,319 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 07:56:48,417 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
+2026-03-04 07:56:48,417 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 07:56:48,872 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 07:56:48,873 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 07:56:48,873 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 07:56:48,873 - pyrogram.session.session - INFO - Session started
+2026-03-04 07:56:48,876 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 07:56:49,331 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 07:56:49,332 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 07:56:49,332 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 07:56:49,332 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 07:56:57,672 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 07:56:57,775 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
+2026-03-04 07:56:57,776 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 07:56:58,256 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 07:56:58,257 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 07:56:58,257 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 07:56:58,257 - pyrogram.session.session - INFO - Session started
+2026-03-04 07:56:58,260 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 07:56:58,765 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 07:56:58,765 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 07:56:58,765 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 07:56:58,766 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 08:09:23,899 - root - INFO - Starting user client...
+2026-03-04 08:09:24,001 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 08:09:24,154 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 08:09:24,155 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 08:09:24,642 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 08:09:24,643 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 08:09:24,644 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 08:09:24,644 - pyrogram.session.session - INFO - Session started
+2026-03-04 08:09:24,648 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 08:09:24,897 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 08:09:24,898 - root - INFO - User client started successfully!
+2026-03-04 08:09:24,898 - root - INFO - Initializing player...
+2026-03-04 08:09:25,875 - root - INFO - Player initialized!
+2026-03-04 08:09:25,876 - root - INFO - Starting bot...
+2026-03-04 08:09:25,895 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 08:09:26,007 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 08:09:26,008 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 08:09:26,555 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 08:09:26,556 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 08:09:26,556 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 08:09:26,556 - pyrogram.session.session - INFO - Session started
+2026-03-04 08:09:26,561 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 08:09:26,910 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 08:09:26,910 - root - INFO - Bot started successfully!
+2026-03-04 08:24:04,496 - root - INFO - Starting user client...
+2026-03-04 08:24:04,598 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 08:24:04,706 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 08:24:04,706 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 08:24:05,220 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 08:24:05,221 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 08:24:05,221 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 08:24:05,221 - pyrogram.session.session - INFO - Session started
+2026-03-04 08:24:05,224 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 08:24:05,536 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 08:24:05,537 - root - INFO - User client started successfully!
+2026-03-04 08:24:05,537 - root - INFO - Initializing player...
+2026-03-04 08:24:06,836 - root - INFO - Player initialized!
+2026-03-04 08:24:06,836 - root - INFO - Starting bot...
+2026-03-04 08:24:06,852 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 08:24:06,941 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 08:24:06,942 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 08:24:07,426 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 08:24:07,426 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 08:24:07,427 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 08:24:07,427 - pyrogram.session.session - INFO - Session started
+2026-03-04 08:24:07,429 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 08:24:07,678 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 08:24:07,678 - root - INFO - Bot started successfully!
+2026-03-04 08:28:02,782 - root - INFO - Stop signal received (SIGINT). Exiting...
+2026-03-04 08:28:04,824 - root - INFO - Stop signal received (SIGINT). Exiting...
+2026-03-04 08:28:05,360 - pyrogram.dispatcher - INFO - Stopped 12 HandlerTasks
+2026-03-04 08:28:05,361 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 08:28:05,361 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 08:28:05,361 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 08:28:05,361 - pyrogram.session.session - INFO - Session stopped
