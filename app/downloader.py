@@ -115,6 +115,7 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
 async def download_audio_file(url: str) -> Tuple[str, dict]:
     """
     Download audio file locally for processing.
+    Uses ffmpeg for reliable downloading of streaming audio.
     
     Args:
         url: Audio stream URL from resolve()
@@ -142,11 +143,14 @@ async def download_audio_file(url: str) -> Tuple[str, dict]:
         "quiet": True,
         "no_warnings": True,
         "progress_hooks": [progress_callback],
-        "socket_timeout": 30,
-        "retries": 2,
+        "socket_timeout": 60,
+        "retries": 3,
+        "fragment_retries": 3,
+        "continuedl": True,  # Resume interrupted downloads
         "http_headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
             "Accept": "*/*",
+            "Connection": "keep-alive",
         },
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
