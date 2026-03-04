@@ -11,23 +11,18 @@ logger = logging.getLogger(__name__)
 DOWNLOAD_DIR = "downloads"
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
-# List of Invidious instances as fallback for YouTube
-INVIDIOUS_INSTANCES = [
-    "https://invidious.io.lol",
-    "https://inv.tux.pizza", 
-    "https://yt.artemislena.eu",
-    "https://invidious.tiekoetter.com",
-    "https://inv.nadeko.net",
-    "https://yewtu.be",
-    "https://vid.puffyan.us",
-    "https://invidious.fdn.fr",
-    "https://youtube.0x58.me",
-    "https://yt.drgnz.org",
+# List of Piped instances (alternative to Invidious, often more reliable)
+PIPED_INSTANCES = [
+    "https://pipedapi.kavin.rocks",
+    "https://pipedapi.adminforge.de",
+    "https://pipedapi.in.projectsegfau.lt",
+    "https://pipedapi.yt1.es",
+    "https://pipedapi.nosebs.ru",
 ]
 
-def get_invidious_url():
-    """Get a random working Invidious instance"""
-    return random.choice(INVIDIOUS_INSTANCES)
+def get_piped_url():
+    """Get a random working Piped instance"""
+    return random.choice(PIPED_INSTANCES)
 
 AUDIO_YDL_OPTS = {
     "format": "bestaudio[ext=webm]/bestaudio/best",
@@ -120,43 +115,54 @@ def _human_views(n: Optional[int]) -> str:
 
 async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], str, str]:
     def _extract() -> Tuple[str, str, Optional[str], Optional[str], str, str]:
-        # Strategy: Try direct URLs first, then search YouTube
-        is_url = query.startswith(('http://', 'https://'))
+        import requests
         
-        # If it's a SoundCloud URL, try it first
-        if is_url and ('soundcloud.com' in query or 'sndcdn.com' in query):
-            try:
-                logger.info(f"Attempting SoundCloud URL extraction: {query}")
-                sc_opts = {
-                    "format": "bestaudio/best",
-                    "noplaylist": True,
-                    "quiet": True,
-                    "skip_download": True,
-                    "no_warnings": True,
-                }
-                with YoutubeDL(sc_opts) as ydl:
-                    info = ydl.extract_info(query, download=False)
-                    
-                    url = info.get("url")
-                    title = info.get("title") or "Audio"
-                    thumb = info.get("thumbnail")
-                    vid = info.get("id", "sc_" + str(hash(title)))
-                    duration_str = _format_duration(info.get("duration"))
-                    views_str = _human_views(info.get("playback_count"))
-                    logger.info(f"SoundCloud extracted: {title}")
-                    return url, title, thumb, vid, views_str, duration_str
-            except Exception as e:
-                logger.warning(f"SoundCloud URL extraction failed: {e}")
-        
-        # Try YouTube (search or URL)
+        # Strategy 1: Try Piped API first (bypasses YouTube bot detection)
         try:
-            logger.info(f"{'Searching' if not is_url else 'Extracting'} YouTube for: {query[:50]}")
+            logger.info(f"Attempting Piped API for: {query[:50]}")
+            piped_url = get_piped_url()
+            
+            # Search for the query
+            search_url = f"{piped_url}/search?q={requests.utils.quote(query)}&filter=music_songs"
+            response = requests.get(search_url, timeout=10)
+            response.raise_for_status()
+            data = response.json()
+            
+            if data.get("items"):
+                video = data["items"][0]
+                video_id = video.get("url", "").replace("/watch?v=", "")
+                
+                if video_id:
+                    # Get stream info
+                    stream_url = f"{piped_url}/streams/{video_id}"
+                    stream_response = requests.get(stream_url, timeout=10)
+                    stream_response.raise_for_status()
+                    stream_data = stream_response.json()
+                    
+                    # Find audio streams
+                    audio_streams = [s for s in stream_data.get("audioStreams", []) if s.get("format") == "M4A"]
+                    if audio_streams:
+                        # Get highest quality M4A stream
+                        url = audio_streams[-1].get("url")
+                        title = stream_data.get("title", video.get("title", "Unknown"))
+                        thumb = stream_data.get("thumbnailUrl", video.get("thumbnail", ""))
+                        vid = video_id
+                        duration_str = _format_duration(stream_data.get("duration"))
+                        views_str = _human_views(stream_data.get("views"))
+                        
+                        logger.info(f"Piped API successful: {title}")
+                        return url, title, thumb, vid, views_str, duration_str
+        except Exception as e:
+            logger.warning(f"Piped API failed: {e}")
+        
+        # Strategy 2: Fall back to direct YouTube with yt-dlp
+        try:
+            logger.info(f"Attempting direct YouTube extraction for: {query[:50]}")
             with YoutubeDL(AUDIO_YDL_OPTS) as ydl:
                 info = ydl.extract_info(query, download=False)
                 if "entries" in info:
                     info = info["entries"][0]
                 
-                # Get the direct media URL
                 url = info.get("url")
                 if not url or "youtube.com" in url or "youtu.be" in url:
                     formats = info.get("formats", [])
@@ -179,12 +185,8 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 logger.info(f"YouTube extracted: {title} (Duration: {duration_str})")
                 return url, title, thumb, vid, views_str, duration_str
         except Exception as e:
-            logger.warning(f"YouTube extraction failed: {e}")
-            logger.error(f"⚠️  YouTube is blocking all extraction attempts from this server")
-            logger.error(f"⚠️  This is due to server IP being flagged for bot detection")
-            
-            # All YouTube methods are blocked, provide helpful error
-            raise Exception(f"YouTube playback is currently unavailable due to network restrictions. Try using a direct SoundCloud URL instead.")
+            logger.error(f"YouTube extraction failed: {e}")
+            raise Exception(f"YouTube playback unavailable. The server's network is blocking YouTube. Please use SoundCloud URLs instead.")
     
     return await asyncio.to_thread(_extract)
 
