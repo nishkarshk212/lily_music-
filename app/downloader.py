@@ -50,35 +50,49 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
         Tuple of (url, title, thumbnail, video_id, views, duration)
     """
     def _extract() -> Tuple[str, str, Optional[str], Optional[str], str, str]:
-        # SoundCloud options
+        # SoundCloud options with better compatibility
         sc_opts = {
             "format": "bestaudio/best",
             "noplaylist": True,
             "quiet": True,
-            "skip_download": True,
             "no_warnings": True,
-            "default_search": "scsearch",  # Search SoundCloud
+            "default_search": "scsearch",
+            "extract_flat": False,
+            "ignoreerrors": "only_download",  # Don't fail on extraction errors
+            "socket_timeout": 30,
+            "retries": 2,
+            "http_headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "Accept": "*/*",
+                "Accept-Language": "en-US,en;q=0.9",
+            }
         }
         
         try:
-            logger.info(f"🔍 Searching/Extracting from SoundCloud: {query[:50]}...")
+            logger.info(f"🔍 Searching SoundCloud: {query[:50]}...")
             
             with YoutubeDL(sc_opts) as ydl:
                 info = ydl.extract_info(query, download=False)
                 
+                if not info:
+                    raise Exception("No results from SoundCloud")
+                
                 # If it's a search result (playlist), get first track
-                if "entries" in info:
+                if "entries" in info and info["entries"]:
                     entries = list(info["entries"])
                     if not entries:
-                        raise Exception("No results found on SoundCloud")
+                        raise Exception("No tracks found")
                     info = entries[0]
-                    logger.info(f"📊 Found {len(entries)} results, using first match")
+                    logger.info(f"📊 Found {len(entries)} results, using: {info.get('title', 'Unknown')}")
                 
                 # Extract metadata
-                url = info.get("url")
+                url = info.get("url") or info.get("webpage_url")
+                if not url:
+                    raise Exception("No playable URL found")
+                    
                 title = info.get("title") or "Unknown Track"
-                thumbnail = info.get("thumbnail")
-                video_id = info.get("id", f"sc_{hash(title)}")
+                thumbnail = info.get("thumbnail") or info.get("artwork_url")
+                video_id = str(info.get("id", f"sc_{hash(title)}"))
                 duration = info.get("duration")
                 play_count = info.get("playback_count", 0)
                 
@@ -86,17 +100,13 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 duration_str = _format_duration(duration)
                 views_str = _human_views(play_count)
                 
-                logger.info(f"✅ SoundCloud: {title} | Duration: {duration_str} | Views: {views_str}")
+                logger.info(f"✅ Found: {title} | {duration_str}")
                 
                 return url, title, thumbnail, video_id, views_str, duration_str
                 
         except Exception as e:
-            logger.error(f"❌ SoundCloud extraction failed: {e}")
-            raise Exception(
-                f"Could not find/play the song. Please try:\n"
-                f"• A different song name\n"
-                f"• A direct SoundCloud URL (https://soundcloud.com/...)"
-            )
+            logger.error(f"❌ Extraction failed: {e.__class__.__name__}: {str(e)[:200]}")
+            raise Exception(f"Could not find the song. Try a different name or check spelling.")
     
     return await asyncio.to_thread(_extract)
 
@@ -120,9 +130,10 @@ async def download_audio_file(url: str) -> Tuple[str, dict]:
             percent = d.get("_percent_str", "N/A")
             speed = d.get("_speed_str", "N/A")
             eta = d.get("_eta_str", "N/A")
-            logger.info(f"⬇️  Downloading: {percent.strip()} | Speed: {speed.strip()} | ETA: {eta.strip()}")
+            if percent and speed:
+                logger.info(f"⬇️  {percent.strip()} | {speed.strip()}")
         elif d["status"] == "finished":
-            logger.info("✅ Download complete, processing...")
+            logger.info("✅ Download done")
     
     download_opts = {
         "format": "bestaudio/best",
@@ -130,6 +141,12 @@ async def download_audio_file(url: str) -> Tuple[str, dict]:
         "quiet": True,
         "no_warnings": True,
         "progress_hooks": [progress_callback],
+        "socket_timeout": 30,
+        "retries": 2,
+        "http_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Accept": "*/*",
+        },
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
             "preferredcodec": "mp3",
@@ -138,12 +155,17 @@ async def download_audio_file(url: str) -> Tuple[str, dict]:
     }
     
     def _download():
-        with YoutubeDL(download_opts) as ydl:
-            info = ydl.extract_info(url, download=True)
-            file_path = ydl.prepare_filename(info)
-            # Convert to mp3 format
-            file_path = file_path.rsplit(".", 1)[0] + ".mp3"
-            return file_path, info
+        try:
+            with YoutubeDL(download_opts) as ydl:
+                info = ydl.extract_info(url, download=True)
+                file_path = ydl.prepare_filename(info)
+                # Ensure mp3 format
+                if file_path.endswith(".webm") or file_path.endswith(".m4a"):
+                    file_path = file_path.rsplit(".", 1)[0] + ".mp3"
+                return file_path, info
+        except Exception as e:
+            logger.error(f"❌ Download failed: {e.__class__.__name__}: {str(e)[:200]}")
+            raise
     
     return await asyncio.to_thread(_download)
 
