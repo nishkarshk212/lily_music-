@@ -695,3 +695,111 @@ Traceback (most recent call last):
   File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
     raise getattr(
 pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+2026-03-04 15:55:56,657 - root - INFO - Starting user client...
+2026-03-04 15:55:56,759 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:55:56,854 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:55:56,855 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:55:57,413 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:55:57,413 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:55:57,413 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:55:57,413 - root - ERROR - Fatal error: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+2026-03-04 15:55:57,417 - root - ERROR - Unhandled exception: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 102, in <module>
+    asyncio.run(main())
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+2026-03-04 16:00:46,407 - root - INFO - Starting user client...
+2026-03-04 16:00:46,590 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 16:00:46,697 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 16:00:46,697 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 16:00:47,170 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 16:00:47,170 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 16:00:47,170 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 16:00:47,170 - root - ERROR - Fatal error: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+2026-03-04 16:00:47,173 - root - ERROR - Unhandled exception: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 102, in <module>
+    asyncio.run(main())
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")

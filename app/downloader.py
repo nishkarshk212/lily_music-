@@ -39,7 +39,7 @@ AUDIO_YDL_OPTS = {
     "extractor_args": {
         "youtube": {
             "skip": ["hls", "dash"],
-            "player_client": "tv_embedded",  # More reliable client
+            "player_client": "tv_embedded",
             "player_skip": ["webpage"]
         }
     },
@@ -59,6 +59,8 @@ AUDIO_YDL_OPTS = {
         "X-Goog-Api-Format-Version": "2",
         "Origin": "https://www.youtube.com",
     },
+    # Try to bypass age restrictions and bot detection
+    "bypass": ["age_gate", "consent"],
 }
 
 # Fallback options with Invidious
@@ -87,6 +89,7 @@ AUDIO_YDL_OPTS_FALLBACK = {
         "X-Youtube-Client-Version": "2.20240111.09.00",
         "Origin": "https://www.youtube.com",
     },
+    "bypass": ["age_gate", "consent"],
 }
 
 QUALITY_FORMATS = {
@@ -153,9 +156,10 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
             logger.warning(f"Primary extraction failed: {e}")
             
             # Fallback 1: Try with different Invidious instances sequentially
-            for invidious_url in INVIDIOUS_INSTANCES:
+            import time
+            for i, invidious_url in enumerate(INVIDIOUS_INSTANCES):
                 try:
-                    logger.info(f"Trying Invidious fallback: {invidious_url}")
+                    logger.info(f"Trying Invidious fallback #{i+1}: {invidious_url}")
                     
                     opts = AUDIO_YDL_OPTS_FALLBACK.copy()
                     opts["extractor_args"] = {
@@ -193,6 +197,9 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                         return url, title, thumb, vid, views_str, duration_str
                 except Exception as fallback_error:
                     logger.warning(f"Invidious fallback {invidious_url} failed: {fallback_error}")
+                    # Wait a bit before trying next instance
+                    if i < len(INVIDIOUS_INSTANCES) - 1:
+                        time.sleep(0.5)
                     continue
             
             # Fallback 2: Try with web embedded client (last resort)
