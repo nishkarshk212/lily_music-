@@ -1787,7 +1787,8 @@ def create_bot(api_id: int, api_hash: str, bot_token: str, player: Player, sessi
         bot_admin = False
         bot_manage_vc = False
         priv = getattr(bm, "privileges", None)
-        if getattr(bm, "status", "") in ("administrator", "creator"):
+        bot_status = _status_str(getattr(bm, "status", ""))
+        if bot_status in ("administrator", "creator", "owner"):
             bot_admin = True
             bot_manage_vc = bool(getattr(priv, "can_manage_video_chats", False) or getattr(priv, "can_manage_voice_chats", False) or getattr(priv, "can_manage_chat", False))
         me_user = player.user_client.me or await player.user_client.get_me()
