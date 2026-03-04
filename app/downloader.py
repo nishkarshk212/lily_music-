@@ -117,76 +117,48 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
     def _extract() -> Tuple[str, str, Optional[str], Optional[str], str, str]:
         import requests
         
-        # Strategy 1: Try Piped API first (bypasses YouTube bot detection)
-        try:
-            logger.info(f"Attempting Piped API for: {query[:50]}")
-            piped_url = get_piped_url()
-            
-            # Search for the query
-            search_url = f"{piped_url}/search?q={requests.utils.quote(query)}&filter=music_songs"
-            response = requests.get(search_url, timeout=10)
-            response.raise_for_status()
-            data = response.json()
-            
-            if data.get("items"):
-                video = data["items"][0]
-                video_id = video.get("url", "").replace("/watch?v=", "")
+        # Strategy 1: Try ALL Piped API instances until one works
+        for piped_url in PIPED_INSTANCES:
+            try:
+                logger.info(f"Attempting Piped API ({piped_url}) for: {query[:50]}")
                 
-                if video_id:
-                    # Get stream info
-                    stream_url = f"{piped_url}/streams/{video_id}"
-                    stream_response = requests.get(stream_url, timeout=10)
-                    stream_response.raise_for_status()
-                    stream_data = stream_response.json()
+                # Search for the query
+                search_url = f"{piped_url}/search?q={requests.utils.quote(query)}&filter=music_songs"
+                response = requests.get(search_url, timeout=10)
+                response.raise_for_status()
+                data = response.json()
+                
+                if data.get("items"):
+                    video = data["items"][0]
+                    video_id = video.get("url", "").replace("/watch?v=", "")
                     
-                    # Find audio streams
-                    audio_streams = [s for s in stream_data.get("audioStreams", []) if s.get("format") == "M4A"]
-                    if audio_streams:
-                        # Get highest quality M4A stream
-                        url = audio_streams[-1].get("url")
-                        title = stream_data.get("title", video.get("title", "Unknown"))
-                        thumb = stream_data.get("thumbnailUrl", video.get("thumbnail", ""))
-                        vid = video_id
-                        duration_str = _format_duration(stream_data.get("duration"))
-                        views_str = _human_views(stream_data.get("views"))
+                    if video_id:
+                        # Get stream info
+                        stream_url = f"{piped_url}/streams/{video_id}"
+                        stream_response = requests.get(stream_url, timeout=10)
+                        stream_response.raise_for_status()
+                        stream_data = stream_response.json()
                         
-                        logger.info(f"Piped API successful: {title}")
-                        return url, title, thumb, vid, views_str, duration_str
-        except Exception as e:
-            logger.warning(f"Piped API failed: {e}")
+                        # Find audio streams
+                        audio_streams = [s for s in stream_data.get("audioStreams", []) if s.get("format") == "M4A"]
+                        if audio_streams:
+                            # Get highest quality M4A stream
+                            url = audio_streams[-1].get("url")
+                            title = stream_data.get("title", video.get("title", "Unknown"))
+                            thumb = stream_data.get("thumbnailUrl", video.get("thumbnail", ""))
+                            vid = video_id
+                            duration_str = _format_duration(stream_data.get("duration"))
+                            views_str = _human_views(stream_data.get("views"))
+                            
+                            logger.info(f"Piped API successful via {piped_url}: {title}")
+                            return url, title, thumb, vid, views_str, duration_str
+            except Exception as e:
+                logger.warning(f"Piped API {piped_url} failed: {e}")
+                continue
         
-        # Strategy 2: Fall back to direct YouTube with yt-dlp
-        try:
-            logger.info(f"Attempting direct YouTube extraction for: {query[:50]}")
-            with YoutubeDL(AUDIO_YDL_OPTS) as ydl:
-                info = ydl.extract_info(query, download=False)
-                if "entries" in info:
-                    info = info["entries"][0]
-                
-                url = info.get("url")
-                if not url or "youtube.com" in url or "youtu.be" in url:
-                    formats = info.get("formats", [])
-                    if formats:
-                        for fmt in reversed(formats):
-                            if fmt.get("acodec") != "none" and fmt.get("vcodec") == "none":
-                                url = fmt.get("url")
-                                break
-                        if not url and formats:
-                            url = formats[-1].get("url")
-                
-                if not url:
-                    raise Exception("No playable URL found")
-                    
-                title = info.get("title") or "Audio"
-                thumb = info.get("thumbnail")
-                vid = info.get("id")
-                duration_str = _format_duration(info.get("duration"))
-                views_str = _human_views(info.get("view_count"))
-                logger.info(f"YouTube extracted: {title} (Duration: {duration_str})")
-                return url, title, thumb, vid, views_str, duration_str
-        except Exception as e:
-            logger.error(f"YouTube extraction failed: {e}")
-            raise Exception(f"YouTube playback unavailable. The server's network is blocking YouTube. Please use SoundCloud URLs instead.")
+        # All Piped instances failed
+        logger.error("All Piped API instances failed")
+        raise Exception(f"All music sources are currently unavailable. Please try again later.")
     
     return await asyncio.to_thread(_extract)
 
