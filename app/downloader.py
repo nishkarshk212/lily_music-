@@ -120,21 +120,24 @@ def _human_views(n: Optional[int]) -> str:
 
 async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], str, str]:
     def _extract() -> Tuple[str, str, Optional[str], Optional[str], str, str]:
-        # Try SoundCloud first (more reliable than YouTube)
-        try:
-            logger.info(f"Attempting SoundCloud extraction for: {query}")
-            sc_opts = {
-                "format": "bestaudio/best",
-                "noplaylist": True,
-                "quiet": True,
-                "skip_download": True,
-                "no_warnings": True,
-            }
-            with YoutubeDL(sc_opts) as ydl:
-                info = ydl.extract_info(query, download=False)
-                
-                url = info.get("url")
-                if url and ("soundcloud.com" in url or "sndcdn.com" in url):
+        # Strategy: Try direct URLs first, then search YouTube
+        is_url = query.startswith(('http://', 'https://'))
+        
+        # If it's a SoundCloud URL, try it first
+        if is_url and ('soundcloud.com' in query or 'sndcdn.com' in query):
+            try:
+                logger.info(f"Attempting SoundCloud URL extraction: {query}")
+                sc_opts = {
+                    "format": "bestaudio/best",
+                    "noplaylist": True,
+                    "quiet": True,
+                    "skip_download": True,
+                    "no_warnings": True,
+                }
+                with YoutubeDL(sc_opts) as ydl:
+                    info = ydl.extract_info(query, download=False)
+                    
+                    url = info.get("url")
                     title = info.get("title") or "Audio"
                     thumb = info.get("thumbnail")
                     vid = info.get("id", "sc_" + str(hash(title)))
@@ -142,25 +145,22 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                     views_str = _human_views(info.get("playback_count"))
                     logger.info(f"SoundCloud extracted: {title}")
                     return url, title, thumb, vid, views_str, duration_str
-        except Exception as e:
-            logger.info(f"SoundCloud extraction failed or not SoundCloud URL: {e}")
+            except Exception as e:
+                logger.warning(f"SoundCloud URL extraction failed: {e}")
         
-        # Try YouTube as secondary
+        # Try YouTube (search or URL)
         try:
-            logger.info(f"Attempting YouTube extraction for: {query}")
+            logger.info(f"{'Searching' if not is_url else 'Extracting'} YouTube for: {query[:50]}")
             with YoutubeDL(AUDIO_YDL_OPTS) as ydl:
                 info = ydl.extract_info(query, download=False)
                 if "entries" in info:
                     info = info["entries"][0]
                 
-                # Get the direct media URL (not webpage URL)
-                # yt-dlp provides 'url' for direct media stream or 'webpage_url' for video page
+                # Get the direct media URL
                 url = info.get("url")
                 if not url or "youtube.com" in url or "youtu.be" in url:
-                    # If we got a webpage URL, try to get formats
                     formats = info.get("formats", [])
                     if formats:
-                        # Get the best audio format
                         for fmt in reversed(formats):
                             if fmt.get("acodec") != "none" and fmt.get("vcodec") == "none":
                                 url = fmt.get("url")
@@ -179,102 +179,12 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 logger.info(f"YouTube extracted: {title} (Duration: {duration_str})")
                 return url, title, thumb, vid, views_str, duration_str
         except Exception as e:
-            logger.warning(f"YouTube primary extraction failed: {e}")
+            logger.warning(f"YouTube extraction failed: {e}")
+            logger.error(f"⚠️  YouTube is blocking all extraction attempts from this server")
+            logger.error(f"⚠️  This is due to server IP being flagged for bot detection")
             
-            # Fallback 1: Try with different Invidious instances sequentially
-            import time
-            for i, invidious_url in enumerate(INVIDIOUS_INSTANCES):
-                try:
-                    logger.info(f"Trying Invidious fallback #{i+1}: {invidious_url}")
-                    
-                    opts = AUDIO_YDL_OPTS_FALLBACK.copy()
-                    opts["extractor_args"] = {
-                        "youtube": {
-                            "skip": ["hls", "dash"],
-                            "player_client": "tv_embedded"
-                        }
-                    }
-                    
-                    with YoutubeDL(opts) as ydl:
-                        info = ydl.extract_info(query, download=False)
-                        if "entries" in info:
-                            info = info["entries"][0]
-                        
-                        url = info.get("url")
-                        if not url or "youtube.com" in url or "youtu.be" in url:
-                            formats = info.get("formats", [])
-                            if formats:
-                                for fmt in reversed(formats):
-                                    if fmt.get("acodec") != "none" and fmt.get("vcodec") == "none":
-                                        url = fmt.get("url")
-                                        break
-                                if not url and formats:
-                                    url = formats[-1].get("url")
-                        
-                        if not url:
-                            continue
-                            
-                        title = info.get("title") or "Audio"
-                        thumb = info.get("thumbnail")
-                        vid = info.get("id")
-                        duration_str = _format_duration(info.get("duration"))
-                        views_str = _human_views(info.get("view_count"))
-                        logger.info(f"Invidious fallback successful: {title}")
-                        return url, title, thumb, vid, views_str, duration_str
-                except Exception as fallback_error:
-                    logger.warning(f"Invidious fallback {invidious_url} failed: {fallback_error}")
-                    # Wait a bit before trying next instance
-                    if i < len(INVIDIOUS_INSTANCES) - 1:
-                        time.sleep(0.5)
-                    continue
-            
-            # Fallback 2: Try with web embedded client (last resort)
-            try:
-                logger.info("Trying web embedded client fallback...")
-                opts = {
-                    "format": "bestaudio/best",
-                    "noplaylist": True,
-                    "quiet": True,
-                    "skip_download": True,
-                    "no_warnings": True,
-                    "extractor_args": {
-                        "youtube": {
-                            "player_client": "web_embedded",
-                            "player_skip": ["webpage"]
-                        }
-                    },
-                    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-                    "http_headers": {
-                        "Accept": "*/*",
-                        "Origin": "https://www.youtube.com",
-                        "Referer": "https://www.youtube.com",
-                    }
-                }
-                with YoutubeDL(opts) as ydl:
-                    info = ydl.extract_info(query, download=False)
-                    if "entries" in info:
-                        info = info["entries"][0]
-                    
-                    url = info.get("url")
-                    if not url:
-                        formats = info.get("formats", [])
-                        if formats:
-                            url = formats[-1].get("url")
-                    
-                    if url:
-                        title = info.get("title") or "Audio"
-                        thumb = info.get("thumbnail")
-                        vid = info.get("id")
-                        duration_str = _format_duration(info.get("duration"))
-                        views_str = _human_views(info.get("view_count"))
-                        logger.info(f"Web embedded fallback successful: {title}")
-                        return url, title, thumb, vid, views_str, duration_str
-            except Exception as e2:
-                logger.warning(f"Web embedded fallback failed: {e2}")
-            
-            # All methods failed
-            logger.error("All extraction methods failed")
-            raise Exception(f"YouTube blocked (bot detection). Try again later or use different query.")
+            # All YouTube methods are blocked, provide helpful error
+            raise Exception(f"YouTube playback is currently unavailable due to network restrictions. Try using a direct SoundCloud URL instead.")
     
     return await asyncio.to_thread(_extract)
 
