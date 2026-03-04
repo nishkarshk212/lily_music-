@@ -12,12 +12,15 @@ DOWNLOAD_DIR = "downloads"
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 # List of Piped instances (alternative to Invidious, often more reliable)
+# Updated list with currently working instances
 PIPED_INSTANCES = [
-    "https://pipedapi.kavin.rocks",
     "https://pipedapi.adminforge.de",
-    "https://pipedapi.in.projectsegfau.lt",
-    "https://pipedapi.yt1.es",
-    "https://pipedapi.nosebs.ru",
+    "https://pipedapi.in.projectsegfau.lt", 
+    "https://pipedapi.r4fo.com",
+    "https://pipedapi.kavin.rocks",
+    "https://pipedapi.libreweb.net",
+    "https://pipedapi.ducks.party",
+    "https://pipedapi.esmailelbob.xyz",
 ]
 
 def get_piped_url():
@@ -156,9 +159,9 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 logger.warning(f"Piped API {piped_url} failed: {e}")
                 continue
         
-        # All Piped instances failed
+        # All Piped instances failed - provide clear error
         logger.error("All Piped API instances failed")
-        raise Exception(f"All music sources are currently unavailable. Please try again later.")
+        raise Exception(f"⚠️ YouTube playback is currently unavailable from this server due to network restrictions. This is a known issue with cloud hosting providers. Please try using SoundCloud direct URLs instead (e.g., /play https://soundcloud.com/artist/song)")
     
     return await asyncio.to_thread(_extract)
 
