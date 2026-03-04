@@ -120,8 +120,34 @@ def _human_views(n: Optional[int]) -> str:
 
 async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], str, str]:
     def _extract() -> Tuple[str, str, Optional[str], Optional[str], str, str]:
-        # Try primary method first
+        # Try SoundCloud first (more reliable than YouTube)
         try:
+            logger.info(f"Attempting SoundCloud extraction for: {query}")
+            sc_opts = {
+                "format": "bestaudio/best",
+                "noplaylist": True,
+                "quiet": True,
+                "skip_download": True,
+                "no_warnings": True,
+            }
+            with YoutubeDL(sc_opts) as ydl:
+                info = ydl.extract_info(query, download=False)
+                
+                url = info.get("url")
+                if url and ("soundcloud.com" in url or "sndcdn.com" in url):
+                    title = info.get("title") or "Audio"
+                    thumb = info.get("thumbnail")
+                    vid = info.get("id", "sc_" + str(hash(title)))
+                    duration_str = _format_duration(info.get("duration"))
+                    views_str = _human_views(info.get("playback_count"))
+                    logger.info(f"SoundCloud extracted: {title}")
+                    return url, title, thumb, vid, views_str, duration_str
+        except Exception as e:
+            logger.info(f"SoundCloud extraction failed or not SoundCloud URL: {e}")
+        
+        # Try YouTube as secondary
+        try:
+            logger.info(f"Attempting YouTube extraction for: {query}")
             with YoutubeDL(AUDIO_YDL_OPTS) as ydl:
                 info = ydl.extract_info(query, download=False)
                 if "entries" in info:
@@ -150,10 +176,10 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 vid = info.get("id")
                 duration_str = _format_duration(info.get("duration"))
                 views_str = _human_views(info.get("view_count"))
-                logger.info(f"Extracted: {title} (Duration: {duration_str})")
+                logger.info(f"YouTube extracted: {title} (Duration: {duration_str})")
                 return url, title, thumb, vid, views_str, duration_str
         except Exception as e:
-            logger.warning(f"Primary extraction failed: {e}")
+            logger.warning(f"YouTube primary extraction failed: {e}")
             
             # Fallback 1: Try with different Invidious instances sequentially
             import time
