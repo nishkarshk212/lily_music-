@@ -42,12 +42,13 @@ def _human_views(n: Optional[int]) -> str:
 async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], str, str]:
     """
     Resolve query to audio stream URL using SoundCloud.
+    For SoundCloud, we download the file and return local path.
     
     Args:
         query: Song name to search OR SoundCloud URL
         
     Returns:
-        Tuple of (url, title, thumbnail, video_id, views, duration)
+        Tuple of (file_path_or_url, title, thumbnail, video_id, views, duration)
     """
     def _extract() -> Tuple[str, str, Optional[str], Optional[str], str, str]:
         # SoundCloud options with better compatibility
@@ -58,13 +59,12 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
             "no_warnings": True,
             "default_search": "scsearch",
             "extract_flat": False,
-            "ignoreerrors": "only_download",  # Don't fail on extraction errors
+            "ignoreerrors": "only_download",
             "socket_timeout": 30,
             "retries": 2,
             "http_headers": {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
                 "Accept": "*/*",
-                "Accept-Language": "en-US,en;q=0.9",
             }
         }
         
@@ -102,6 +102,7 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 
                 logger.info(f"✅ Found: {title} | {duration_str}")
                 
+                # Return the direct URL - player will handle downloading if needed
                 return url, title, thumbnail, video_id, views_str, duration_str
                 
         except Exception as e:

@@ -107,19 +107,49 @@ class Player:
         src = track[0]
         import logging
         logger = logging.getLogger(__name__)
-        logger.info(f"Attempting to play: {track[1]} | Source: {src[:80] if src else 'None'}")
+        logger.info(f"🎵 Attempting to play: {track[1]}")
+        logger.info(f"   Source type: {'URL' if src.startswith('http') else 'File'}")
         
-        # Only handle audio playback
+        # Check if we need to download first (for SoundCloud URLs)
+        file_to_cleanup = None
         try:
+            # If it's a SoundCloud URL, we need to download it first
+            if src and 'soundcloud.com' in src or src.startswith('https://cf-hls-media'):
+                logger.info(f"⬇️  SoundCloud URL detected, downloading...")
+                from app.downloader import download_audio_file
+                try:
+                    file_path, info = await download_audio_file(src)
+                    logger.info(f"✅ Downloaded to: {file_path}")
+                    src = file_path
+                    file_to_cleanup = file_path
+                except Exception as e:
+                    logger.error(f"❌ Download failed: {e}")
+                    raise
+            
+            # Now play the stream (local file or direct URL)
             stream = MediaStream(
                 media_path=src,
                 audio_parameters=AudioQuality.HIGH,
             )
             await self.tgcalls.play(chat_id, stream)
             logger.info(f"✅ Successfully started playback for chat {chat_id}")
+            
+            # Store cleanup info if we downloaded
+            if file_to_cleanup:
+                logger.info(f"📝 Will cleanup: {file_to_cleanup} after playback")
+                # Schedule cleanup after song ends (estimate from duration)
+                asyncio.create_task(self._cleanup_later(chat_id, file_to_cleanup))
+                
         except Exception as e:
             logger.error(f"❌ Failed to play: {e.__class__.__name__}: {e}")
-            logger.error(f"Source URL: {src}")
+            logger.error(f"Source: {src[:100] if src else 'None'}")
+            # Cleanup on error
+            if file_to_cleanup:
+                try:
+                    import os
+                    os.remove(file_to_cleanup)
+                except:
+                    pass
             raise
         
         cb = getattr(self, "on_track_start", None)
@@ -128,6 +158,17 @@ class Player:
                 await cb(chat_id, track)
             except Exception:
                 pass
+    
+    async def _cleanup_later(self, chat_id: int, file_path: str, delay: int = 300):
+        """Cleanup downloaded file after delay (5 minutes default)"""
+        await asyncio.sleep(delay)
+        try:
+            import os
+            if os.path.exists(file_path):
+                os.remove(file_path)
+                logger.info(f"🗑️ Cleaned up: {file_path}")
+        except Exception as e:
+            logger.warning(f"Failed to cleanup {file_path}: {e}")
 
     async def skip(self, chat_id: int) -> Optional[Track]:
         async with self._lock:
