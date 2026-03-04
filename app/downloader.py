@@ -1,6 +1,9 @@
 import asyncio
 from typing import Optional, Tuple
 from yt_dlp import YoutubeDL
+import logging
+
+logger = logging.getLogger(__name__)
 
 AUDIO_YDL_OPTS = {
     "format": "bestaudio/best",
@@ -13,6 +16,8 @@ AUDIO_YDL_OPTS = {
     "check_formats": "selected",
     "youtube_include_dash_manifest": False,
     "youtube_include_hls_manifest": False,
+    "socket_timeout": 30,
+    "retries": 3,
 }
 
 QUALITY_FORMATS = {
