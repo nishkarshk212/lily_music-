@@ -3,8 +3,13 @@ from typing import Optional, Tuple
 from yt_dlp import YoutubeDL
 import logging
 import random
+import os
+import uuid
 
 logger = logging.getLogger(__name__)
+
+DOWNLOAD_DIR = "downloads"
+os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 # List of Invidious instances as fallback for YouTube
 INVIDIOUS_INSTANCES = [
@@ -14,6 +19,10 @@ INVIDIOUS_INSTANCES = [
     "https://invidious.tiekoetter.com",
     "https://inv.nadeko.net",
     "https://yewtu.be",
+    "https://vid.puffyan.us",
+    "https://invidious.fdn.fr",
+    "https://youtube.0x58.me",
+    "https://yt.drgnz.org",
 ]
 
 def get_invidious_url():
@@ -30,7 +39,7 @@ AUDIO_YDL_OPTS = {
     "extractor_args": {
         "youtube": {
             "skip": ["hls", "dash"],
-            "player_client": "ios",
+            "player_client": "tv_embedded",  # More reliable client
             "player_skip": ["webpage"]
         }
     },
@@ -39,8 +48,8 @@ AUDIO_YDL_OPTS = {
     "youtube_include_hls_manifest": False,
     "socket_timeout": 30,
     "retries": 3,
-    # Use iOS client (more reliable for avoiding bot detection)
-    "user_agent": "com.google.ios.youtube/17.33.2 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
+    # Use TV embedded client (most reliable for avoiding bot detection)
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "referer": "https://www.youtube.com/",
     "prefer_free_formats": False,
     "extractor_retries": 3,
@@ -48,6 +57,7 @@ AUDIO_YDL_OPTS = {
         "Accept": "*/*",
         "Accept-Language": "en-US,en;q=0.9",
         "X-Goog-Api-Format-Version": "2",
+        "Origin": "https://www.youtube.com",
     },
 }
 
@@ -62,19 +72,20 @@ AUDIO_YDL_OPTS_FALLBACK = {
     "extractor_args": {
         "youtube": {
             "skip": ["hls", "dash"],
-            "player_client": "web_music",
+            "player_client": "web_safari",  # Safari web client - more reliable
             "player_skip": ["webpage"]
         }
     },
     "socket_timeout": 30,
     "retries": 2,
-    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
     "referer": "https://www.youtube.com/",
     "http_headers": {
         "Accept": "*/*",
         "X-Goog-Api-Format-Version": "2",
         "X-Youtube-Client-Name": "1",
         "X-Youtube-Client-Version": "2.20240111.09.00",
+        "Origin": "https://www.youtube.com",
     },
 }
 
@@ -150,7 +161,7 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                     opts["extractor_args"] = {
                         "youtube": {
                             "skip": ["hls", "dash"],
-                            "player_client": "ios"
+                            "player_client": "tv_embedded"
                         }
                     }
                     
@@ -184,8 +195,114 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                     logger.warning(f"Invidious fallback {invidious_url} failed: {fallback_error}")
                     continue
             
+            # Fallback 2: Try with web embedded client (last resort)
+            try:
+                logger.info("Trying web embedded client fallback...")
+                opts = {
+                    "format": "bestaudio/best",
+                    "noplaylist": True,
+                    "quiet": True,
+                    "skip_download": True,
+                    "no_warnings": True,
+                    "extractor_args": {
+                        "youtube": {
+                            "player_client": "web_embedded",
+                            "player_skip": ["webpage"]
+                        }
+                    },
+                    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                    "http_headers": {
+                        "Accept": "*/*",
+                        "Origin": "https://www.youtube.com",
+                        "Referer": "https://www.youtube.com",
+                    }
+                }
+                with YoutubeDL(opts) as ydl:
+                    info = ydl.extract_info(query, download=False)
+                    if "entries" in info:
+                        info = info["entries"][0]
+                    
+                    url = info.get("url")
+                    if not url:
+                        formats = info.get("formats", [])
+                        if formats:
+                            url = formats[-1].get("url")
+                    
+                    if url:
+                        title = info.get("title") or "Audio"
+                        thumb = info.get("thumbnail")
+                        vid = info.get("id")
+                        duration_str = _format_duration(info.get("duration"))
+                        views_str = _human_views(info.get("view_count"))
+                        logger.info(f"Web embedded fallback successful: {title}")
+                        return url, title, thumb, vid, views_str, duration_str
+            except Exception as e2:
+                logger.warning(f"Web embedded fallback failed: {e2}")
+            
             # All methods failed
             logger.error("All extraction methods failed")
             raise Exception(f"YouTube blocked (bot detection). Try again later or use different query.")
     
     return await asyncio.to_thread(_extract)
+
+
+async def download_audio_file(url: str) -> Tuple[str, dict]:
+    """
+    Download audio file locally with progress tracking.
+    
+    Args:
+        url: YouTube URL or search query
+        
+    Returns:
+        Tuple of (file_path, info_dict)
+    """
+    unique_id = str(uuid.uuid4())
+    output_path = os.path.join(DOWNLOAD_DIR, f"{unique_id}.%(ext)s")
+    
+    def progress_hook(d):
+        if d["status"] == "downloading":
+            percent = d.get("_percent_str", "N/A")
+            speed = d.get("_speed_str", "N/A")
+            eta = d.get("_eta_str", "N/A")
+            logger.info(f"Downloading: {percent} | Speed: {speed} | ETA: {eta}")
+            # Note: Can't call async functions here directly
+            # Progress callback will be handled by logging
+        elif d["status"] == "finished":
+            logger.info("Download finished, processing...")
+
+    ydl_opts = {
+        "format": "bestaudio[ext=m4a]/bestaudio/best",
+        "outtmpl": output_path,
+        "quiet": True,
+        "noplaylist": True,
+        "geo_bypass": True,
+        "nocheckcertificate": True,
+        "progress_hooks": [progress_hook],
+        "postprocessors": [{
+            "key": "FFmpegExtractAudio",
+            "preferredcodec": "mp3",
+            "preferredquality": "192",
+        }],
+    }
+    
+    def _download():
+        with YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(url, download=True)
+            file_path = ydl.prepare_filename(info)
+            # Convert to mp3
+            file_path = file_path.rsplit(".", 1)[0] + ".mp3"
+            return file_path, info
+    
+    return await asyncio.to_thread(_download)
+
+
+def cleanup_file(file_path: str) -> bool:
+    """Remove downloaded file if it exists."""
+    if file_path and os.path.exists(file_path):
+        try:
+            os.remove(file_path)
+            logger.info(f"Cleaned up file: {file_path}")
+            return True
+        except Exception as e:
+            logger.warning(f"Failed to cleanup file {file_path}: {e}")
+    return False

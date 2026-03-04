@@ -22,9 +22,15 @@ class Player:
         self._started = False
         self._lock = asyncio.Lock()
         self.on_track_start = None
+        self._flag_queues = {}  # Track flag queues per chat
 
         self._bind_events()
 
+    def _ensure_flag_queue(self, chat_id: int) -> asyncio.Queue:
+        """Ensure a flag queue exists for this chat_id"""
+        if chat_id not in self._flag_queues:
+            self._flag_queues[chat_id] = asyncio.Queue()
+        return self._flag_queues[chat_id]
 
     def _bind_events(self) -> None:
         @self.tgcalls.on_update()
@@ -56,16 +62,25 @@ class Player:
             self._started = True
 
     async def enqueue(self, chat_id: int, track: Track) -> int:
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"📥 Enqueue request for chat {chat_id}: {track[1]}")
+        
         async with self._lock:
             # Always add the track to the queue first
             await self.queue.add(chat_id, track)
+            logger.info(f"   Added to queue for chat {chat_id}")
+            
             fq = self._ensure_flag_queue(chat_id)
             await fq.put(False)
             
             # Check if there's currently playing music in this chat
             cur = self.queue.current(chat_id)
+            logger.info(f"   Current playing: {cur is not None}")
+            
             if not cur:
                 # If no music is currently playing, play the newly added track directly
+                logger.info(f"   No music playing, starting playback...")
                 nxt = await self.queue.next(chat_id)
                 if nxt:
                     # consume flag queued above
@@ -73,9 +88,11 @@ class Player:
                         _ = fq.get_nowait()
                     except Exception:
                         pass
+                    logger.info(f"   Calling _play with: {nxt[1]}")
                     await self._play(chat_id, nxt, is_video=False)
                 # Return 0 to indicate it's playing immediately (as first in queue)
                 return 0
+        
         # If there was music playing, return the number of pending items in queue
         return len(self.queue.pending(chat_id))
 
@@ -88,12 +105,23 @@ class Player:
 
     async def _play(self, chat_id: int, track: Track, is_video: bool = False) -> None:
         src = track[0]
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"Attempting to play: {track[1]} | Source: {src[:80] if src else 'None'}")
+        
         # Only handle audio playback
-        stream = MediaStream(
-            media_path=src,
-            audio_parameters=AudioQuality.HIGH,
-        )
-        await self.tgcalls.play(chat_id, stream)
+        try:
+            stream = MediaStream(
+                media_path=src,
+                audio_parameters=AudioQuality.HIGH,
+            )
+            await self.tgcalls.play(chat_id, stream)
+            logger.info(f"✅ Successfully started playback for chat {chat_id}")
+        except Exception as e:
+            logger.error(f"❌ Failed to play: {e.__class__.__name__}: {e}")
+            logger.error(f"Source URL: {src}")
+            raise
+        
         cb = getattr(self, "on_track_start", None)
         if cb:
             try:

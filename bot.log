@@ -1,128 +1,697 @@
-2026-03-04 07:56:31,052 - root - INFO - Starting user client...
-2026-03-04 07:56:31,156 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 07:56:31,257 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
-2026-03-04 07:56:31,257 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 07:56:31,722 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 07:56:31,723 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 07:56:31,724 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 07:56:31,724 - pyrogram.session.session - INFO - Session started
-2026-03-04 07:56:31,729 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 07:56:31,959 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
-2026-03-04 07:56:31,960 - root - INFO - User client started successfully!
-2026-03-04 07:56:31,960 - root - INFO - Initializing player...
-2026-03-04 07:56:32,461 - root - INFO - Player initialized!
-2026-03-04 07:56:32,462 - root - INFO - Starting bot...
-2026-03-04 07:56:33,550 - root - ERROR - Error starting bot: database is locked
-2026-03-04 07:56:33,550 - root - WARNING - Database locked, trying alternative session...
-2026-03-04 07:56:33,553 - root - INFO - Removed /Users/nishkarshkr/Desktop/Panda x music /sessions/bot/music-bot-alt.session
-2026-03-04 07:56:33,582 - pyrogram.session.auth - INFO - Start creating a new auth key on DC2
-2026-03-04 07:56:33,582 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 07:56:33,772 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
-2026-03-04 07:56:35,795 - pyrogram.session.auth - INFO - Done auth key exchange: DhGenOk
-2026-03-04 07:56:35,796 - pyrogram.connection.connection - INFO - Disconnected
-2026-03-04 07:56:35,800 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 07:56:35,976 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
-2026-03-04 07:56:35,977 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 07:56:36,783 - pyrogram.session.session - INFO - Session started
-2026-03-04 07:56:36,785 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 07:56:36,985 - pyrogram.session.session - INFO - PingTask stopped
-2026-03-04 07:56:36,986 - pyrogram.connection.connection - INFO - Disconnected
-2026-03-04 07:56:36,986 - pyrogram.session.session - INFO - NetworkTask stopped
-2026-03-04 07:56:36,986 - pyrogram.session.session - INFO - Session stopped
-2026-03-04 07:56:36,993 - pyrogram.session.auth - INFO - Start creating a new auth key on DC5
-2026-03-04 07:56:36,993 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 07:56:37,091 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
-2026-03-04 07:56:38,652 - pyrogram.session.auth - INFO - Done auth key exchange: DhGenOk
-2026-03-04 07:56:38,653 - pyrogram.connection.connection - INFO - Disconnected
-2026-03-04 07:56:38,656 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 07:56:38,760 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
-2026-03-04 07:56:38,761 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - Session started
-2026-03-04 07:56:39,247 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 07:56:39,643 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
-2026-03-04 07:56:39,644 - root - INFO - Bot started with alternative session!
-2026-03-04 07:56:48,319 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 07:56:48,417 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
-2026-03-04 07:56:48,417 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 07:56:48,872 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 07:56:48,873 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 07:56:48,873 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 07:56:48,873 - pyrogram.session.session - INFO - Session started
-2026-03-04 07:56:48,876 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 07:56:49,331 - pyrogram.session.session - INFO - PingTask stopped
-2026-03-04 07:56:49,332 - pyrogram.connection.connection - INFO - Disconnected
-2026-03-04 07:56:49,332 - pyrogram.session.session - INFO - NetworkTask stopped
-2026-03-04 07:56:49,332 - pyrogram.session.session - INFO - Session stopped
-2026-03-04 07:56:57,672 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 07:56:57,775 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
-2026-03-04 07:56:57,776 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 07:56:58,256 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 07:56:58,257 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 07:56:58,257 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 07:56:58,257 - pyrogram.session.session - INFO - Session started
-2026-03-04 07:56:58,260 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 07:56:58,765 - pyrogram.session.session - INFO - PingTask stopped
-2026-03-04 07:56:58,765 - pyrogram.connection.connection - INFO - Disconnected
-2026-03-04 07:56:58,765 - pyrogram.session.session - INFO - NetworkTask stopped
-2026-03-04 07:56:58,766 - pyrogram.session.session - INFO - Session stopped
-2026-03-04 08:09:23,899 - root - INFO - Starting user client...
-2026-03-04 08:09:24,001 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 08:09:24,154 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
-2026-03-04 08:09:24,155 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 08:09:24,642 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 08:09:24,643 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 08:09:24,644 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 08:09:24,644 - pyrogram.session.session - INFO - Session started
-2026-03-04 08:09:24,648 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 08:09:24,897 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
-2026-03-04 08:09:24,898 - root - INFO - User client started successfully!
-2026-03-04 08:09:24,898 - root - INFO - Initializing player...
-2026-03-04 08:09:25,875 - root - INFO - Player initialized!
-2026-03-04 08:09:25,876 - root - INFO - Starting bot...
-2026-03-04 08:09:25,895 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 08:09:26,007 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
-2026-03-04 08:09:26,008 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 08:09:26,555 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 08:09:26,556 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 08:09:26,556 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 08:09:26,556 - pyrogram.session.session - INFO - Session started
-2026-03-04 08:09:26,561 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 08:09:26,910 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
-2026-03-04 08:09:26,910 - root - INFO - Bot started successfully!
-2026-03-04 08:24:04,496 - root - INFO - Starting user client...
-2026-03-04 08:24:04,598 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 08:24:04,706 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
-2026-03-04 08:24:04,706 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 08:24:05,220 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 08:24:05,221 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 08:24:05,221 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 08:24:05,221 - pyrogram.session.session - INFO - Session started
-2026-03-04 08:24:05,224 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 08:24:05,536 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
-2026-03-04 08:24:05,537 - root - INFO - User client started successfully!
-2026-03-04 08:24:05,537 - root - INFO - Initializing player...
-2026-03-04 08:24:06,836 - root - INFO - Player initialized!
-2026-03-04 08:24:06,836 - root - INFO - Starting bot...
-2026-03-04 08:24:06,852 - pyrogram.connection.connection - INFO - Connecting...
-2026-03-04 08:24:06,941 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
-2026-03-04 08:24:06,942 - pyrogram.session.session - INFO - NetworkTask started
-2026-03-04 08:24:07,426 - pyrogram.session.session - INFO - Session initialized: Layer 158
-2026-03-04 08:24:07,426 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
-2026-03-04 08:24:07,427 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
-2026-03-04 08:24:07,427 - pyrogram.session.session - INFO - Session started
-2026-03-04 08:24:07,429 - pyrogram.session.session - INFO - PingTask started
-2026-03-04 08:24:07,678 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
-2026-03-04 08:24:07,678 - root - INFO - Bot started successfully!
-2026-03-04 08:28:02,782 - root - INFO - Stop signal received (SIGINT). Exiting...
-2026-03-04 08:28:04,824 - root - INFO - Stop signal received (SIGINT). Exiting...
-2026-03-04 08:28:05,360 - pyrogram.dispatcher - INFO - Stopped 12 HandlerTasks
-2026-03-04 08:28:05,361 - pyrogram.session.session - INFO - PingTask stopped
-2026-03-04 08:28:05,361 - pyrogram.connection.connection - INFO - Disconnected
-2026-03-04 08:28:05,361 - pyrogram.session.session - INFO - NetworkTask stopped
-2026-03-04 08:28:05,361 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 14:39:16,412 - root - INFO - Starting user client...
+2026-03-04 14:39:16,516 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 14:39:16,610 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 14:39:16,611 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 14:39:17,129 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 14:39:17,130 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 14:39:17,130 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 14:39:17,130 - pyrogram.session.session - INFO - Session started
+2026-03-04 14:39:17,133 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 14:39:17,396 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 14:39:17,396 - root - INFO - User client started successfully!
+2026-03-04 14:39:17,396 - root - INFO - Initializing player...
+2026-03-04 14:39:18,514 - root - INFO - Player initialized!
+2026-03-04 14:39:18,515 - root - INFO - Starting bot...
+2026-03-04 14:39:18,521 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 14:39:18,617 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 14:39:18,618 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 14:39:19,081 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 14:39:19,081 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 14:39:19,081 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 14:39:19,081 - pyrogram.session.session - INFO - Session started
+2026-03-04 14:39:19,083 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 14:39:19,320 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 14:39:19,321 - root - INFO - Bot started successfully!
+2026-03-04 14:39:27,525 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 14:39:27,627 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
+2026-03-04 14:39:27,627 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 14:39:28,097 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 14:39:28,098 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 14:39:28,098 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 14:39:28,098 - pyrogram.session.session - INFO - Session started
+2026-03-04 14:39:28,101 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 14:39:28,549 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 14:39:28,550 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 14:39:28,550 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 14:39:28,550 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 14:42:20,346 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] nWbj7W_pD9U: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 14:42:20,346 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 14:42:24,372 - app.downloader - INFO - Invidious fallback successful: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 14:51:58,857 - root - INFO - Starting user client...
+2026-03-04 14:51:58,956 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 14:51:59,080 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 14:51:59,080 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 14:51:59,548 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 14:51:59,548 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 14:51:59,548 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 14:51:59,549 - pyrogram.session.session - INFO - Session started
+2026-03-04 14:51:59,550 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 14:51:59,803 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 14:51:59,803 - root - INFO - User client started successfully!
+2026-03-04 14:51:59,803 - root - INFO - Initializing player...
+2026-03-04 14:52:00,829 - root - INFO - Player initialized!
+2026-03-04 14:52:00,829 - root - INFO - Starting bot...
+2026-03-04 14:52:00,846 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 14:52:00,938 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 14:52:00,939 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 14:52:01,554 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 14:52:01,554 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 14:52:01,554 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 14:52:01,554 - pyrogram.session.session - INFO - Session started
+2026-03-04 14:52:01,559 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 14:52:01,888 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 14:52:01,889 - root - INFO - Bot started successfully!
+2026-03-04 14:52:16,851 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] nWbj7W_pD9U: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 14:52:16,851 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 14:52:20,794 - app.downloader - INFO - Invidious fallback successful: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 14:56:24,531 - root - INFO - Starting user client...
+2026-03-04 14:56:24,635 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 14:56:24,770 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 14:56:24,771 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 14:56:25,272 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 14:56:25,273 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 14:56:25,273 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 14:56:25,273 - pyrogram.session.session - INFO - Session started
+2026-03-04 14:56:25,277 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 14:56:25,541 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 14:56:25,541 - root - INFO - User client started successfully!
+2026-03-04 14:56:25,541 - root - INFO - Initializing player...
+2026-03-04 14:56:26,054 - root - INFO - Player initialized!
+2026-03-04 14:56:26,054 - root - INFO - Starting bot...
+2026-03-04 14:56:26,071 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 14:56:26,182 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 14:56:26,183 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 14:56:26,802 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 14:56:26,803 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 14:56:26,803 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 14:56:26,803 - pyrogram.session.session - INFO - Session started
+2026-03-04 14:56:26,808 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 14:56:27,069 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 14:56:27,069 - root - INFO - Bot started successfully!
+2026-03-04 15:00:14,078 - root - INFO - Starting user client...
+2026-03-04 15:00:14,179 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:14,338 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:00:14,339 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:00:14,802 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:00:14,803 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:00:14,803 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:00:14,803 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:00:14,806 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:00:15,052 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:00:15,053 - root - INFO - User client started successfully!
+2026-03-04 15:00:15,053 - root - INFO - Initializing player...
+2026-03-04 15:00:15,859 - root - INFO - Player initialized!
+2026-03-04 15:00:15,859 - root - INFO - Starting bot...
+2026-03-04 15:00:15,874 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:15,981 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:00:15,982 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:00:16,506 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:00:16,506 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:00:16,506 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:00:16,506 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:00:16,510 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:00:16,768 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:00:16,768 - root - INFO - Bot started successfully!
+2026-03-04 15:00:36,620 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:00:36,620 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 15:00:36,621 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:36,621 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:36,621 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:36,621 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:37,624 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:37,624 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:38,626 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:38,627 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:39,628 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:39,629 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:39,629 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:39,630 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:39,630 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:39,916 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:00:39,917 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 15:00:39,918 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:39,918 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:39,918 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:39,918 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:40,632 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:40,633 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:40,920 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:40,920 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:41,634 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:41,635 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:41,922 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:41,923 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:42,636 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:42,636 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:42,636 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:42,637 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:42,637 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:42,925 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:42,925 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:42,925 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:42,925 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:42,926 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:43,639 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:43,640 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:43,927 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:43,928 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:44,642 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:44,643 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:44,930 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:44,931 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:45,645 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:45,645 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:45,645 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:45,646 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:45,646 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:45,932 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:45,932 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:45,933 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:45,933 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:45,933 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:46,648 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:46,649 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:46,935 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:46,937 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:47,650 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:47,650 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:47,940 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:47,940 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:48,652 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:48,652 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:48,652 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:48,653 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:48,653 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:48,942 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:48,942 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:48,942 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:48,942 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:48,943 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:49,655 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:49,656 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:49,945 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:49,946 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:50,657 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:50,658 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:50,947 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:50,948 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:51,660 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:51,660 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:51,660 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:51,661 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:51,661 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:51,949 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2026-03-04 15:00:51,949 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:00:51,949 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:00:51,949 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:51,950 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:52,662 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:52,663 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:52,951 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:52,957 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: [Errno 51] Network is unreachable
+2026-03-04 15:00:53,663 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:53,913 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:00:53,914 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:00:53,962 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:00:54,274 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:00:54,275 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:00:54,609 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:00:54,610 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:00:54,610 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:00:54,610 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:00:54,610 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:00:54,781 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:00:54,782 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:00:54,782 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:00:54,782 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:00:54,782 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:01:11,124 - root - INFO - Starting user client...
+2026-03-04 15:01:11,226 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:01:11,321 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:01:11,321 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:01:11,773 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:01:11,774 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:01:11,774 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:01:11,774 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:01:11,775 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:01:12,019 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:01:12,019 - root - INFO - User client started successfully!
+2026-03-04 15:01:12,019 - root - INFO - Initializing player...
+2026-03-04 15:01:13,286 - root - INFO - Player initialized!
+2026-03-04 15:01:13,286 - root - INFO - Starting bot...
+2026-03-04 15:01:13,295 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:01:13,440 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:01:13,440 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:01:14,129 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:01:14,129 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:01:14,129 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:01:14,129 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:01:14,133 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:01:14,462 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:01:14,463 - root - INFO - Bot started successfully!
+2026-03-04 15:02:09,432 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] nWbj7W_pD9U: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:02:09,433 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:02:13,465 - app.downloader - INFO - Invidious fallback successful: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 15:03:15,735 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:03:15,846 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
+2026-03-04 15:03:15,846 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:03:16,358 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:03:16,361 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:03:16,361 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:03:16,361 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:03:16,363 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:03:16,797 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 15:03:16,797 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:03:16,798 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:03:16,798 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:03:18,351 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:03:18,451 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
+2026-03-04 15:03:18,451 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:03:18,962 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:03:18,963 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:03:18,963 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:03:18,963 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:03:18,966 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:03:19,453 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 15:03:19,453 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:03:19,454 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:03:19,454 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:06:23,352 - root - INFO - Starting user client...
+2026-03-04 15:06:23,452 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:06:23,578 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:06:23,579 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:06:24,084 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:06:24,084 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:06:24,084 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:06:24,084 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:06:24,087 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:06:24,339 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:06:24,339 - root - INFO - User client started successfully!
+2026-03-04 15:06:24,340 - root - INFO - Initializing player...
+2026-03-04 15:06:25,058 - root - INFO - Player initialized!
+2026-03-04 15:06:25,058 - root - INFO - Starting bot...
+2026-03-04 15:06:25,077 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:06:25,189 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:06:25,190 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:06:25,693 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:06:25,693 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:06:25,694 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:06:25,694 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:06:25,697 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:06:25,952 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:06:25,952 - root - INFO - Bot started successfully!
+2026-03-04 15:06:32,157 - app.downloader - INFO - Extracted: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit (Duration: 5:29)
+2026-03-04 15:08:23,105 - root - INFO - Starting user client...
+2026-03-04 15:08:23,204 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:08:23,310 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:08:23,310 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:08:23,786 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:08:23,787 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:08:23,788 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:08:23,788 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:08:23,791 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:08:24,060 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:08:24,060 - root - INFO - User client started successfully!
+2026-03-04 15:08:24,060 - root - INFO - Initializing player...
+2026-03-04 15:08:24,564 - root - INFO - Player initialized!
+2026-03-04 15:08:24,564 - root - INFO - Starting bot...
+2026-03-04 15:08:24,583 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:08:24,683 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:08:24,684 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:08:25,269 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:08:25,269 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:08:25,270 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:08:25,270 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:08:25,274 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:08:25,531 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:08:25,531 - root - INFO - Bot started successfully!
+2026-03-04 15:08:41,037 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] nWbj7W_pD9U: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:08:41,037 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:08:44,944 - app.downloader - INFO - Invidious fallback successful: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 15:09:53,985 - root - INFO - Starting user client...
+2026-03-04 15:09:54,086 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:09:54,216 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:09:54,216 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:09:54,763 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:09:54,763 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:09:54,764 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:09:54,764 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:09:54,767 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:09:55,018 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:09:55,019 - root - INFO - User client started successfully!
+2026-03-04 15:09:55,019 - root - INFO - Initializing player...
+2026-03-04 15:09:56,076 - root - INFO - Player initialized!
+2026-03-04 15:09:56,076 - root - INFO - Starting bot...
+2026-03-04 15:09:56,095 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:09:56,226 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:09:56,227 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:09:56,729 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:09:56,730 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:09:56,730 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:09:56,730 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:09:56,735 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:09:57,061 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:09:57,061 - root - INFO - Bot started successfully!
+2026-03-04 15:10:03,054 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] nWbj7W_pD9U: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:10:03,054 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:10:07,691 - app.downloader - INFO - Invidious fallback successful: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 15:10:08,622 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 15:10:08,623 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:10:29,742 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] nWbj7W_pD9U: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:10:29,742 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:10:33,515 - app.downloader - INFO - Invidious fallback successful: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 15:10:34,417 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Dil: Shreya's Version (Lyrical) | Ek Villain Returns | John Disha Arjun Tara | Kaushik-Guddu, Mohit
+2026-03-04 15:10:34,417 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:12:06,016 - root - INFO - Starting user client...
+2026-03-04 15:12:06,118 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:12:06,223 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:12:06,224 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:12:06,682 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:12:06,684 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:12:06,684 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:12:06,684 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:12:06,688 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:12:06,951 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:12:06,951 - root - INFO - User client started successfully!
+2026-03-04 15:12:06,951 - root - INFO - Initializing player...
+2026-03-04 15:12:07,760 - root - INFO - Player initialized!
+2026-03-04 15:12:07,760 - root - INFO - Starting bot...
+2026-03-04 15:12:07,770 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:12:07,887 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:12:07,887 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:12:08,370 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:12:08,371 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:12:08,371 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:12:08,371 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:12:08,375 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:12:08,658 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:12:08,659 - root - INFO - Bot started successfully!
+2026-03-04 15:12:27,396 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] HubRXgH0Erc: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:12:27,396 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:12:30,862 - app.downloader - INFO - Invidious fallback successful: Tumsa Koi Pyaara | Kumar Sanu | Alka Yagnik | Khuddar (1994)
+2026-03-04 15:12:31,929 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Tumsa Koi Pyaara | Kumar Sanu | Alka Yagnik | Khuddar (1994)
+2026-03-04 15:12:31,929 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:12:31,929 - app.player - INFO -    Current playing: False
+2026-03-04 15:12:31,929 - app.player - INFO -    No music playing, starting playback...
+2026-03-04 15:12:31,929 - app.player - INFO -    Calling _play with: Tumsa Koi Pyaara | Kumar Sanu | Alka Yagnik | Khuddar (1994)
+2026-03-04 15:12:31,929 - app.player - INFO - Attempting to play: Tumsa Koi Pyaara | Kumar Sanu | Alka Yagnik | Khuddar (1994) | Source: https://rr6---sn-gwpa-civey.googlevideo.com/videoplayback?expire=1772638949&ei=h
+2026-03-04 15:12:33,944 - app.player - INFO - ✅ Successfully started playback for chat -1003843911730
+2026-03-04 15:15:20,237 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] wjYK67cgNKc: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:15:20,237 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:15:24,056 - app.downloader - INFO - Invidious fallback successful: Kahin Door Jab Din Dhal Jaye (Male) । Mukesh | Anand 1971 Songs । Rajesh Khanna, Amitabh Bachchan
+2026-03-04 15:15:24,964 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Kahin Door Jab Din Dhal Jaye (Male) । Mukesh | Anand 1971 Songs । Rajesh Khanna, Amitabh Bachchan
+2026-03-04 15:15:24,964 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:15:24,964 - app.player - INFO -    Current playing: True
+2026-03-04 15:15:24,976 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:15:25,154 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
+2026-03-04 15:15:25,155 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:15:25,645 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:15:25,645 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:15:25,645 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:15:25,645 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:15:25,648 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:15:26,330 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 15:15:26,330 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:15:26,330 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:15:26,330 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:16:18,283 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:16:18,375 - pyrogram.connection.connection - INFO - Connected! Production DC5 (media) - IPv4
+2026-03-04 15:16:18,376 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:16:18,846 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:16:18,847 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:16:18,847 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:16:18,847 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:16:18,849 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:16:19,402 - pyrogram.session.session - INFO - PingTask stopped
+2026-03-04 15:16:19,402 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:16:19,402 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:16:19,402 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:18:25,516 - app.player - INFO - Attempting to play: Kahin Door Jab Din Dhal Jaye (Male) । Mukesh | Anand 1971 Songs । Rajesh Khanna, Amitabh Bachchan | Source: https://rr3---sn-gwpa-civek.googlevideo.com/videoplayback?expire=1772639123&ei=M
+2026-03-04 15:18:26,087 - app.player - INFO - ✅ Successfully started playback for chat -1003843911730
+2026-03-04 15:23:04,694 - root - INFO - Starting user client...
+2026-03-04 15:23:04,795 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:23:04,893 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:23:04,894 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:23:05,464 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:23:05,464 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:23:05,464 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:23:05,464 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:23:05,465 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:23:05,747 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:23:05,747 - root - INFO - User client started successfully!
+2026-03-04 15:23:05,747 - root - INFO - Initializing player...
+2026-03-04 15:23:06,766 - root - INFO - Player initialized!
+2026-03-04 15:23:06,767 - root - INFO - Starting bot...
+2026-03-04 15:23:06,787 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:23:06,890 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:23:06,891 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:23:07,372 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:23:07,372 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:23:07,373 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:23:07,373 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:23:07,376 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:23:07,621 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:23:07,621 - root - INFO - Bot started successfully!
+2026-03-04 15:23:21,364 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] wjYK67cgNKc: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:23:21,364 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:23:25,103 - app.downloader - INFO - Invidious fallback successful: Kahin Door Jab Din Dhal Jaye (Male) । Mukesh | Anand 1971 Songs । Rajesh Khanna, Amitabh Bachchan
+2026-03-04 15:23:26,056 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Kahin Door Jab Din Dhal Jaye (Male) । Mukesh | Anand 1971 Songs । Rajesh Khanna, Amitabh Bachchan
+2026-03-04 15:23:26,056 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:23:26,056 - app.player - INFO -    Current playing: False
+2026-03-04 15:23:26,057 - app.player - INFO -    No music playing, starting playback...
+2026-03-04 15:23:26,057 - app.player - INFO -    Calling _play with: Kahin Door Jab Din Dhal Jaye (Male) । Mukesh | Anand 1971 Songs । Rajesh Khanna, Amitabh Bachchan
+2026-03-04 15:23:26,057 - app.player - INFO - Attempting to play: Kahin Door Jab Din Dhal Jaye (Male) । Mukesh | Anand 1971 Songs । Rajesh Khanna, Amitabh Bachchan | Source: https://rr3---sn-gwpa-civek.googlevideo.com/videoplayback?expire=1772639604&ei=F
+2026-03-04 15:23:27,930 - app.player - INFO - ✅ Successfully started playback for chat -1003843911730
+2026-03-04 15:30:25,864 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] TqdNqBA44Bg: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:30:25,864 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:30:29,865 - app.downloader - INFO - Invidious fallback successful: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam
+2026-03-04 15:30:30,789 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam
+2026-03-04 15:30:30,789 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:30:30,789 - app.player - INFO -    Current playing: False
+2026-03-04 15:30:30,789 - app.player - INFO -    No music playing, starting playback...
+2026-03-04 15:30:30,789 - app.player - INFO -    Calling _play with: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam
+2026-03-04 15:30:30,789 - app.player - INFO - Attempting to play: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam | Source: https://rr3---sn-gwpa-civek.googlevideo.com/videoplayback?expire=1772640028&ei=v
+2026-03-04 15:30:31,899 - app.player - INFO - ✅ Successfully started playback for chat -1003843911730
+2026-03-04 15:30:57,636 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-1137' coro=<Client.handle_updates() done, defined at /Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/client.py:535> exception=ValueError('Peer id invalid: -1002828273364')>
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/advanced/resolve_peer.py", line 62, in resolve_peer
+    return await self.storage.get_peer_by_id(peer_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/storage/sqlite_storage.py", line 142, in get_peer_by_id
+    raise KeyError(f"ID not found: {peer_id}")
+KeyError: 'ID not found: -1002828273364'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/client.py", line 569, in handle_updates
+    channel=await self.resolve_peer(utils.get_channel_id(channel_id)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/advanced/resolve_peer.py", line 89, in resolve_peer
+    peer_type = utils.get_peer_type(peer_id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/utils.py", line 246, in get_peer_type
+    raise ValueError(f"Peer id invalid: {peer_id}")
+ValueError: Peer id invalid: -1002828273364
+2026-03-04 15:32:11,200 - root - INFO - Starting user client...
+2026-03-04 15:32:11,300 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:32:11,405 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:32:11,406 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:32:11,869 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:32:11,871 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:32:11,871 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:32:11,871 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:32:11,874 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:32:12,110 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:32:12,110 - root - INFO - User client started successfully!
+2026-03-04 15:32:12,111 - root - INFO - Initializing player...
+2026-03-04 15:32:13,122 - root - INFO - Player initialized!
+2026-03-04 15:32:13,122 - root - INFO - Starting bot...
+2026-03-04 15:32:13,142 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:32:13,253 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:32:13,253 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:32:13,747 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:32:13,748 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:32:13,748 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:32:13,748 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:32:13,752 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:32:14,021 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:32:14,021 - root - INFO - Bot started successfully!
+2026-03-04 15:32:42,279 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] Hf--3X8LXtU: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:32:42,279 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:32:46,227 - app.downloader - INFO - Invidious fallback successful: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam
+2026-03-04 15:32:47,150 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam
+2026-03-04 15:32:47,150 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:32:47,150 - app.player - INFO -    Current playing: False
+2026-03-04 15:32:47,150 - app.player - INFO -    No music playing, starting playback...
+2026-03-04 15:32:47,150 - app.player - INFO -    Calling _play with: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam
+2026-03-04 15:32:47,150 - app.player - INFO - Attempting to play: Zindagi Ke Safar Mein | Amruta Kolatkar | Kishore Kumar | Aap Ki Kasam | Source: https://rr3---sn-gwpa-civek.googlevideo.com/videoplayback?expire=1772640165&ei=R
+2026-03-04 15:32:48,824 - app.player - INFO - ✅ Successfully started playback for chat -1003843911730
+2026-03-04 15:35:12,375 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-516' coro=<Client.handle_updates() done, defined at /Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/client.py:535> exception=ValueError('Peer id invalid: -1002828273364')>
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/advanced/resolve_peer.py", line 62, in resolve_peer
+    return await self.storage.get_peer_by_id(peer_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/storage/sqlite_storage.py", line 142, in get_peer_by_id
+    raise KeyError(f"ID not found: {peer_id}")
+KeyError: 'ID not found: -1002828273364'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/client.py", line 569, in handle_updates
+    channel=await self.resolve_peer(utils.get_channel_id(channel_id)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/advanced/resolve_peer.py", line 89, in resolve_peer
+    peer_type = utils.get_peer_type(peer_id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/utils.py", line 246, in get_peer_type
+    raise ValueError(f"Peer id invalid: {peer_id}")
+ValueError: Peer id invalid: -1002828273364
+2026-03-04 15:38:19,262 - root - INFO - Starting user client...
+2026-03-04 15:38:19,363 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:38:19,479 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:38:19,479 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:38:19,975 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:38:19,976 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:38:19,977 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:38:19,977 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:38:19,981 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:38:20,241 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:38:20,242 - root - INFO - User client started successfully!
+2026-03-04 15:38:20,242 - root - INFO - Initializing player...
+2026-03-04 15:38:21,444 - root - INFO - Player initialized!
+2026-03-04 15:38:21,444 - root - INFO - Starting bot...
+2026-03-04 15:38:21,464 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:38:21,565 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:38:21,566 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:38:22,064 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2026-03-04 15:38:22,065 - pyrogram.session.session - INFO - Device: CPython 3.11.9 - Pyrogram 2.0.106
+2026-03-04 15:38:22,065 - pyrogram.session.session - INFO - System: Darwin 25.1.0 (en)
+2026-03-04 15:38:22,065 - pyrogram.session.session - INFO - Session started
+2026-03-04 15:38:22,070 - pyrogram.session.session - INFO - PingTask started
+2026-03-04 15:38:22,322 - pyrogram.dispatcher - INFO - Started 12 HandlerTasks
+2026-03-04 15:38:22,323 - root - INFO - Bot started successfully!
+2026-03-04 15:38:28,249 - app.downloader - WARNING - Primary extraction failed: [0;31mERROR:[0m [youtube] lgn8dhzFS34: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2026-03-04 15:38:28,250 - app.downloader - INFO - Trying Invidious fallback: https://invidious.io.lol
+2026-03-04 15:38:32,258 - app.downloader - INFO - Invidious fallback successful: Kya Bharosa Hai Is Jindagi Ka I क्या भरोसा है इस ज़िन्दगीका I Master Rana Hit Song
+2026-03-04 15:38:33,375 - app.player - INFO - 📥 Enqueue request for chat -1003843911730: Kya Bharosa Hai Is Jindagi Ka I क्या भरोसा है इस ज़िन्दगीका I Master Rana Hit Song
+2026-03-04 15:38:33,375 - app.player - INFO -    Added to queue for chat -1003843911730
+2026-03-04 15:38:33,375 - app.player - INFO -    Current playing: False
+2026-03-04 15:38:33,375 - app.player - INFO -    No music playing, starting playback...
+2026-03-04 15:38:33,376 - app.player - INFO -    Calling _play with: Kya Bharosa Hai Is Jindagi Ka I क्या भरोसा है इस ज़िन्दगीका I Master Rana Hit Song
+2026-03-04 15:38:33,376 - app.player - INFO - Attempting to play: Kya Bharosa Hai Is Jindagi Ka I क्या भरोसा है इस ज़िन्दगीका I Master Rana Hit Song | Source: https://rr5---sn-gwpa-civey.googlevideo.com/videoplayback?expire=1772640511&ei=n
+2026-03-04 15:38:34,947 - app.player - INFO - ✅ Successfully started playback for chat -1003843911730
+2026-03-04 15:39:23,224 - pyrogram.client - INFO - {
+    "_": "types.UpdatesTooLong"
+}
+2026-03-04 15:40:41,015 - root - INFO - Starting user client...
+2026-03-04 15:40:41,116 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:40:41,230 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:40:41,230 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:40:41,757 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:40:41,758 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:40:41,758 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:40:41,758 - root - ERROR - Fatal error: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+2026-03-04 15:40:41,760 - root - ERROR - Unhandled exception: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 102, in <module>
+    asyncio.run(main())
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+2026-03-04 15:42:29,429 - root - INFO - Starting user client...
+2026-03-04 15:42:29,535 - pyrogram.connection.connection - INFO - Connecting...
+2026-03-04 15:42:29,635 - pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2026-03-04 15:42:29,636 - pyrogram.session.session - INFO - NetworkTask started
+2026-03-04 15:42:30,071 - pyrogram.connection.connection - INFO - Disconnected
+2026-03-04 15:42:30,072 - pyrogram.session.session - INFO - NetworkTask stopped
+2026-03-04 15:42:30,072 - pyrogram.session.session - INFO - Session stopped
+2026-03-04 15:42:30,072 - root - ERROR - Fatal error: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+2026-03-04 15:42:30,074 - root - ERROR - Unhandled exception: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")
+Traceback (most recent call last):
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 102, in <module>
+    asyncio.run(main())
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/.pyenv/versions/3.11.9/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /start_bot.py", line 45, in main
+    await user.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/utilities/start.py", line 58, in start
+    is_authorized = await self.connect()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/methods/auth/connect.py", line 47, in connect
+    await self.session.start()
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 144, in start
+    raise e
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 120, in start
+    await self.send(
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/Users/nishkarshkr/Desktop/Panda x music /.venv/lib/python3.11/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.not_acceptable_406.AuthKeyDuplicated: Telegram says: [406 AUTH_KEY_DUPLICATED] - The same authorization key (session file) was used in more than one place simultaneously. You must delete your session file and log in again with your phone number or bot token (caused by "InvokeWithLayer")

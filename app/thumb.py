@@ -26,8 +26,12 @@ def _download(url: str, path: str) -> None:
 async def generate_thumbnail(video_id: Optional[str], title: str, views: str, duration: str, bot_username: str) -> str:
     out_dir = os.path.join(os.getcwd(), "downloads", "thumbs")
     _ensure_dir(out_dir)
-    tmp_path = os.path.join(out_dir, f"{video_id or 'thumb'}.jpg")
-    url = f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg" if video_id else None
+    
+    # Ensure video_id is never None
+    safe_video_id = video_id or "default_thumb"
+    
+    tmp_path = os.path.join(out_dir, f"{safe_video_id}.jpg")
+    url = f"https://img.youtube.com/vi/{safe_video_id}/hqdefault.jpg"
     if url:
         await asyncio.to_thread(_download, url, tmp_path)
     else:
