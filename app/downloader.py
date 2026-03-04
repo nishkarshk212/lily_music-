@@ -19,35 +19,48 @@ def get_invidious_url():
     return random.choice(INVIDIOUS_INSTANCES)
 
 AUDIO_YDL_OPTS = {
-    "format": "bestaudio/best",
+    "format": "bestaudio[ext=webm]/bestaudio/best",
     "noplaylist": True,
     "quiet": True,
     "skip_download": True,
     "no_warnings": True,
     "default_search": "ytsearch",
-    "extractor_args": {"youtube": {"skip": ["hls", "dash"]}},
+    "extractor_args": {
+        "youtube": {
+            "skip": ["hls", "dash"],
+            "player_client": "ios",
+            "player_skip": ["webpage"]
+        }
+    },
     "check_formats": "selected",
     "youtube_include_dash_manifest": False,
     "youtube_include_hls_manifest": False,
     "socket_timeout": 30,
     "retries": 3,
-    # Bypass bot detection
-    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    # Multiple user agents to rotate
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
     "referer": "https://www.youtube.com/",
+    "cookiesfrombrowser": None,
 }
 
 # Fallback options with Invidious
 AUDIO_YDL_OPTS_FALLBACK = {
-    "format": "bestaudio/best",
+    "format": "bestaudio[ext=webm]/bestaudio/best",
     "noplaylist": True,
     "quiet": True,
     "skip_download": True,
     "no_warnings": True,
     "default_search": "ytsearch",
-    "extractor_args": {"youtube": {"skip": ["hls", "dash"]}},
+    "extractor_args": {
+        "youtube": {
+            "skip": ["hls", "dash"],
+            "player_client": "tv_embedded"
+        }
+    },
     "socket_timeout": 30,
     "retries": 2,
-    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "referer": "https://www.youtube.com/",
 }
 
 QUALITY_FORMATS = {
