@@ -12,6 +12,8 @@ INVIDIOUS_INSTANCES = [
     "https://inv.tux.pizza", 
     "https://yt.artemislena.eu",
     "https://invidious.tiekoetter.com",
+    "https://inv.nadeko.net",
+    "https://yewtu.be",
 ]
 
 def get_invidious_url():
@@ -28,7 +30,7 @@ AUDIO_YDL_OPTS = {
     "extractor_args": {
         "youtube": {
             "skip": ["hls", "dash"],
-            "player_client": "tv_embedded",
+            "player_client": "ios",
             "player_skip": ["webpage"]
         }
     },
@@ -37,17 +39,15 @@ AUDIO_YDL_OPTS = {
     "youtube_include_hls_manifest": False,
     "socket_timeout": 30,
     "retries": 3,
-    # Use TV embedded client (less restrictions)
-    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    # Use iOS client (more reliable for avoiding bot detection)
+    "user_agent": "com.google.ios.youtube/17.33.2 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
     "referer": "https://www.youtube.com/",
-    # Try without browser cookies first
     "prefer_free_formats": False,
-    # Additional bypass techniques
     "extractor_retries": 3,
     "http_headers": {
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-us,en;q=0.5",
-        "Sec-Fetch-Mode": "navigate",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "X-Goog-Api-Format-Version": "2",
     },
 }
 
@@ -62,17 +62,19 @@ AUDIO_YDL_OPTS_FALLBACK = {
     "extractor_args": {
         "youtube": {
             "skip": ["hls", "dash"],
-            "player_client": "android",
+            "player_client": "web_music",
             "player_skip": ["webpage"]
         }
     },
     "socket_timeout": 30,
     "retries": 2,
-    "user_agent": "com.google.android.youtube/17.31.35 (Linux; U; Android 13) gzip",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "referer": "https://www.youtube.com/",
     "http_headers": {
         "Accept": "*/*",
         "X-Goog-Api-Format-Version": "2",
+        "X-Youtube-Client-Name": "1",
+        "X-Youtube-Client-Version": "2.20240111.09.00",
     },
 }
 
@@ -110,43 +112,80 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 info = ydl.extract_info(query, download=False)
                 if "entries" in info:
                     info = info["entries"][0]
-                url = info.get("url") or info.get("webpage_url")
+                
+                # Get the direct media URL (not webpage URL)
+                # yt-dlp provides 'url' for direct media stream or 'webpage_url' for video page
+                url = info.get("url")
+                if not url or "youtube.com" in url or "youtu.be" in url:
+                    # If we got a webpage URL, try to get formats
+                    formats = info.get("formats", [])
+                    if formats:
+                        # Get the best audio format
+                        for fmt in reversed(formats):
+                            if fmt.get("acodec") != "none" and fmt.get("vcodec") == "none":
+                                url = fmt.get("url")
+                                break
+                        if not url and formats:
+                            url = formats[-1].get("url")
+                
+                if not url:
+                    raise Exception("No playable URL found")
+                    
                 title = info.get("title") or "Audio"
                 thumb = info.get("thumbnail")
                 vid = info.get("id")
                 duration_str = _format_duration(info.get("duration"))
                 views_str = _human_views(info.get("view_count"))
+                logger.info(f"Extracted: {title} (Duration: {duration_str})")
                 return url, title, thumb, vid, views_str, duration_str
         except Exception as e:
             logger.warning(f"Primary extraction failed: {e}")
             
-            # Fallback: Try with Invidious instance
-            try:
-                invidious_url = get_invidious_url()
-                logger.info(f"Trying Invidious fallback: {invidious_url}")
-                
-                opts = AUDIO_YDL_OPTS_FALLBACK.copy()
-                opts["extractor_args"] = {
-                    "youtube": {
-                        "skip": ["hls", "dash"],
-                        "player_client": "ios"
+            # Fallback 1: Try with different Invidious instances sequentially
+            for invidious_url in INVIDIOUS_INSTANCES:
+                try:
+                    logger.info(f"Trying Invidious fallback: {invidious_url}")
+                    
+                    opts = AUDIO_YDL_OPTS_FALLBACK.copy()
+                    opts["extractor_args"] = {
+                        "youtube": {
+                            "skip": ["hls", "dash"],
+                            "player_client": "ios"
+                        }
                     }
-                }
-                
-                with YoutubeDL(opts) as ydl:
-                    info = ydl.extract_info(query, download=False)
-                    if "entries" in info:
-                        info = info["entries"][0]
-                    url = info.get("url") or info.get("webpage_url")
-                    title = info.get("title") or "Audio"
-                    thumb = info.get("thumbnail")
-                    vid = info.get("id")
-                    duration_str = _format_duration(info.get("duration"))
-                    views_str = _human_views(info.get("view_count"))
-                    logger.info(f"Invidious fallback successful: {title}")
-                    return url, title, thumb, vid, views_str, duration_str
-            except Exception as fallback_error:
-                logger.error(f"Invidious fallback also failed: {fallback_error}")
-                raise Exception(f"Yououtube blocked (bot detection). Try again or use different query. Error: {e}")
+                    
+                    with YoutubeDL(opts) as ydl:
+                        info = ydl.extract_info(query, download=False)
+                        if "entries" in info:
+                            info = info["entries"][0]
+                        
+                        url = info.get("url")
+                        if not url or "youtube.com" in url or "youtu.be" in url:
+                            formats = info.get("formats", [])
+                            if formats:
+                                for fmt in reversed(formats):
+                                    if fmt.get("acodec") != "none" and fmt.get("vcodec") == "none":
+                                        url = fmt.get("url")
+                                        break
+                                if not url and formats:
+                                    url = formats[-1].get("url")
+                        
+                        if not url:
+                            continue
+                            
+                        title = info.get("title") or "Audio"
+                        thumb = info.get("thumbnail")
+                        vid = info.get("id")
+                        duration_str = _format_duration(info.get("duration"))
+                        views_str = _human_views(info.get("view_count"))
+                        logger.info(f"Invidious fallback successful: {title}")
+                        return url, title, thumb, vid, views_str, duration_str
+                except Exception as fallback_error:
+                    logger.warning(f"Invidious fallback {invidious_url} failed: {fallback_error}")
+                    continue
+            
+            # All methods failed
+            logger.error("All extraction methods failed")
+            raise Exception(f"YouTube blocked (bot detection). Try again later or use different query.")
     
     return await asyncio.to_thread(_extract)
