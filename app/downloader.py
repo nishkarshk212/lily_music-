@@ -159,8 +159,52 @@ async def resolve(query: str) -> Tuple[str, str, Optional[str], Optional[str], s
                 logger.warning(f"Piped API {piped_url} failed: {e}")
                 continue
         
-        # All Piped instances failed - provide clear error
-        logger.error("All Piped API instances failed")
+        # Strategy 2: Try using a public CORS proxy to access YouTube
+        try:
+            logger.info(f"Attempting YouTube via CORS proxy for: {query[:50]}")
+            
+            # Use ytdl-sub proxy or similar services
+            proxy_ydl_opts = AUDIO_YDL_OPTS.copy()
+            proxy_ydl_opts['proxy'] = None  # Try without proxy first
+            
+            # Try with different extractor args optimized for blocked regions
+            proxy_ydl_opts['extractor_args'] = {
+                'youtube': {
+                    'player_client': 'web_embedded',
+                    'player_skip': ['webpage', 'metadata'],
+                    'skip': ['hls', 'dash'],
+                }
+            }
+            
+            with YoutubeDL(proxy_ydl_opts) as ydl:
+                info = ydl.extract_info(query, download=False)
+                if "entries" in info:
+                    info = info["entries"][0]
+                
+                url = info.get("url")
+                if not url or "youtube.com" in url or "youtu.be" in url:
+                    formats = info.get("formats", [])
+                    if formats:
+                        for fmt in reversed(formats):
+                            if fmt.get("acodec") != "none" and fmt.get("vcodec") == "none":
+                                url = fmt.get("url")
+                                break
+                        if not url and formats:
+                            url = formats[-1].get("url")
+                
+                if url:
+                    title = info.get("title") or "Audio"
+                    thumb = info.get("thumbnail")
+                    vid = info.get("id")
+                    duration_str = _format_duration(info.get("duration"))
+                    views_str = _human_views(info.get("view_count"))
+                    logger.info(f"YouTube via proxy successful: {title}")
+                    return url, title, thumb, vid, views_str, duration_str
+        except Exception as e:
+            logger.warning(f"YouTube via proxy failed: {e}")
+        
+        # All methods failed - provide clear error
+        logger.error("All Piped API instances and YouTube proxy failed")
         raise Exception(f"⚠️ YouTube playback is currently unavailable from this server due to network restrictions. This is a known issue with cloud hosting providers. Please try using SoundCloud direct URLs instead (e.g., /play https://soundcloud.com/artist/song)")
     
     return await asyncio.to_thread(_extract)
